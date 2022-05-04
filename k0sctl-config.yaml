@@ -1,0 +1,29 @@
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+spec:
+  hosts:
+    - role: controller
+      privateInterface: eth1
+      ssh:
+        address: 192.168.0.101
+        user: vagrant
+        keyPath: ./insecure_private_key
+    - role: worker
+      privateInterface: eth1
+      ssh:
+        address: 192.168.0.102
+        user: vagrant
+        keyPath: ./insecure_private_key
+    - role: worker
+      privateInterface: eth1
+      ssh:
+        address: 192.168.0.103
+        user: vagrant
+        keyPath: ./insecure_private_key
+  k0s:
+    version: 1.21.11+k0s.0
+    config:
+      apiVersion: k0s.k0sproject.io/v1beta1
+      kind: Cluster
+      metadata:
+        name: k0s

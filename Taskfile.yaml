@@ -1,0 +1,11 @@
+version: 3
+
+tasks:
+  k0sctl:install:
+  - arkade get k0sctl
+
+  k0sctl:apply:
+  - k0sctl apply -c k0sctl-config.yaml
+
+  k0sctl:kubeconfig:
+  - k0sctl kubeconfig -c k0sctl-config.yaml
